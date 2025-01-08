@@ -1,0 +1,247 @@
+section {
+	position: relative;
+	margin: 130px 0px;
+
+	@include adaptive-calc(margin-top, 50, 130, 375, 1920);
+	@include adaptive-calc(margin-bottom, 50, 130, 375, 1920);
+}
+
+// Text ========================================================================================================================================================
+h1 {
+	font-weight: 300;
+	font-size: 150px;
+	// line-height: 120px;
+	line-height: 80%;
+
+	@include adaptive-calc(font-size, 36, 150, 375, 1920);
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 50px;
+	// line-height: 45px;
+	line-height: 90%;
+
+	@include adaptive-calc(font-size, 24, 50, 375, 1920);
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 40px;
+
+	@include adaptive-calc(font-size, 20, 40, 375, 1920);
+}
+
+h4 {
+	font-weight: 500;
+	font-size: 30px;
+	// line-height: 30px;
+	line-height: 100%;
+	// line-height: 135%;
+
+	@include adaptive-calc(font-size, 18, 30, 375, 1920);
+}
+
+h5 {
+	font-weight: 500;
+	font-size: 25px;
+	// line-height: 25px;
+	line-height: 100%;
+
+	@include adaptive-calc(font-size, 16, 25, 375, 1920);
+}
+
+p {
+	font-weight: 300;
+	font-size: 20px;
+
+	// line-height: 26px;
+	line-height: 130%;
+
+	@include adaptive-calc(font-size, 13, 20, 375, 1920);
+}
+
+// Button ========================================================================================================================================================
+.rs-btn {
+	cursor: pointer;
+	position: relative;
+	display: inline-flex;
+	overflow: hidden;
+	justify-content: center;
+	text-align: center;
+	z-index: 10;
+	transition: 1s;
+
+	padding: 20px;
+	border-radius: 10px;
+	font-weight: 330;
+	font-size: 20px;
+	// line-height: 26px;
+	line-height: 130%;
+
+	@include adaptive-calc(font-size, 13, 20, 375, 1920);
+	@include adaptive-calc(padding, 16, 20, 375, 1920);
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		width: 50px;
+		height: 50px;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		border-radius: 50%;
+		z-index: -1;
+		transition: 2s ease;
+	}
+
+	&::before {
+		top: -1.5em;
+		left: -1.5em;
+	}
+
+	&::after {
+		left: calc(100% + 1.5em);
+		top: calc(100% + 1.5em);
+	}
+
+	&._btn-primary {
+		background: #cbc7bc;
+		color: #030304;
+
+		&::before,
+		&::after {
+			background-color: var(--primary-color);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::before,
+			&::after {
+				height: 1000px;
+				width: 1000px;
+			}
+		}
+	}
+}
+
+.form {
+	width: 100%;
+
+	// .form__wrapper
+	&__wrapper {
+		position: relative;
+	}
+
+	// .form__block
+	&__block {
+	}
+
+	&__row {
+		@media (min-width: 991.98px) {
+			display: flex;
+			& > * {
+				&:first-child {
+					.rs-input,
+					.rs-btn {
+						border-radius: 10px 0 0 10px;
+					}
+				}
+
+				&:last-child {
+					.rs-input,
+					.rs-btn {
+						border-radius: 0 10px 10px 0;
+					}
+				}
+			}
+		}
+	}
+
+	// .form__line
+	&__line {
+		width: 100%;
+		position: relative;
+
+		@media (max-width: 991.98px) {
+			margin-bottom: 15px;
+		}
+	}
+
+	// .form__button
+	&__button {
+		width: 100%;
+
+		@media (min-width: 991.98px) {
+			max-width: 266px;
+		}
+
+		@media (max-width: 991.98px) {
+			margin-top: 20px;
+		}
+
+		.rs-btn {
+			height: 100%;
+			width: 100%;
+			white-space: nowrap;
+			border-radius: 0px;
+		}
+	}
+}
+
+.rs-input {
+	outline: none;
+	width: 100%;
+	transition: 0.3s ease 0s;
+	transition-property: background-color, border-color;
+	padding: 20px;
+	background-color: transparent;
+	font-weight: 300;
+	font-size: 20px;
+	// line-height: 26px;
+	line-height: 130%;
+	color: #fff;
+	border: 1px solid #b7b3a8;
+
+	@include adaptive-calc(font-size, 13, 20, 375, 1920);
+	@include adaptive-calc(padding, 16, 20, 375, 1920);
+
+	&::placeholder {
+		color: #fff;
+	}
+}
+
+.section-header {
+	padding-bottom: 20px;
+	padding-left: 20px;
+	margin-bottom: 30px;
+	position: relative;
+
+	@include adaptive-calc(padding-left, 10, 20, 375, 1920);
+	@include adaptive-calc(padding-bottom, 10, 20, 375, 1920);
+	@include adaptive-calc(margin-bottom, 20, 30, 375, 1920);
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		height: 1px;
+		background: #000;
+		transition: width 3s ease 0.1s;
+	}
+
+	&.aos-animate {
+		&::before {
+			width: 100%;
+		}
+	}
+}

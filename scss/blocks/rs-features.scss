@@ -1,0 +1,59 @@
+@import "../base/_mixin";
+
+.rs-features {
+	// .rs-features__container
+	&__container {
+	}
+
+	// .rs-features__wrapper
+	&__wrapper {
+	}
+
+	// .rs-features__list
+	&__list {
+		counter-reset: li;
+		display: flex;
+		gap: 20px;
+
+		@media (min-width: 767.98px) {
+			justify-content: space-between;
+		}
+
+		@media (max-width: 767.98px) {
+			flex-direction: column;
+		}
+	}
+
+	// .rs-features__item
+	&__item {
+		flex: 1 1 33.33333%;
+
+		&::before {
+			display: block;
+			counter-increment: li;
+			content: counter(li, decimal-leading-zero);
+			font-weight: 500;
+			font-size: 80px;
+			// line-height: 80px;
+			line-height: 100%;
+			color: #030304;
+			margin-bottom: 30px;
+
+			@include adaptive-calc(font-size, 30, 80, 375, 1920);
+			@include adaptive-calc(margin-bottom, 20, 30, 375, 1920);
+		}
+	}
+
+	// .rs-features__desc
+	&__desc {
+		max-width: 470px;
+
+		@media (max-width: 767.98px) {
+			max-width: 100%;
+		}
+
+		p {
+			margin-top: 10px;
+		}
+	}
+}

@@ -1,0 +1,107 @@
+@import "../base/_mixin";
+
+.rs-text-block {
+	// .rs-text-block__container
+	&__container {
+	}
+
+	// .rs-text-block__wrapper
+	&__wrapper {
+		border-radius: 10px;
+		overflow: hidden;
+
+		@media (min-width: 767.98px) {
+			display: flex;
+		}
+	}
+
+	// .rs-text-block__item
+	&__item {
+		@media (min-width: 767.98px) {
+			flex: 1 1 50%;
+		}
+	}
+
+	// .rs-text-block__img
+	&__img {
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.marquee {
+			position: absolute;
+			right: 10px;
+			top: 0;
+
+			&[data-direction="left"],
+			&[data-direction="right"] {
+				ul {
+					display: flex;
+					li {
+						display: flex;
+						align-items: center;
+						flex-shrink: 0;
+						margin: 0 10px;
+
+						img {
+							object-fit: contain;
+							height: 38px;
+
+							@include adaptive-calc(height, 20, 38, 375, 1920);
+						}
+					}
+				}
+			}
+
+			&[data-direction="up"],
+			&[data-direction="bottom"] {
+				ul {
+					display: block;
+					position: relative;
+
+					li {
+						display: block;
+						margin: 20px 0;
+
+						img {
+							object-fit: contain;
+							width: 38px;
+
+							@include adaptive-calc(width, 20, 38, 375, 1920);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// .rs-text-block__desc
+	&__desc {
+		height: 100%;
+		width: 100%;
+		background-color: var(--primary-color);
+		padding: 120px 117px;
+		color: #fff;
+
+		@include adaptive-calc(padding-top, 20, 120, 375, 1920);
+		@include adaptive-calc(padding-right, 16, 117, 375, 1920);
+		@include adaptive-calc(padding-bottom, 20, 120, 375, 1920);
+		@include adaptive-calc(padding-left, 16, 177, 375, 1920);
+
+		p {
+			margin-top: 20px;
+
+			@include adaptive-calc(margin-top, 10, 20, 375, 1920);
+		}
+
+		h4 {
+			line-height: 135%;
+		}
+	}
+}

@@ -1,0 +1,72 @@
+@import "../base/_mixin";
+
+.rs-banner {
+	padding: 20px;
+	margin-bottom: -20px;
+	height: 100vh;
+	margin-top: 0px;
+
+	@include adaptive-calc(padding, 8, 20, 320, 1920);
+	@include adaptive-calc(margin-bottom, -8, -20, 320, 1920);
+
+	&__wrapper {
+		height: 100%;
+		position: relative;
+	}
+
+	// .rs-banner__content
+	&__content {
+		height: 100%;
+		padding: 57px 60px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-end;
+
+		@include adaptive-calc(padding-top, 20, 57, 320, 1920);
+		@include adaptive-calc(padding-right, 8, 60, 320, 1920);
+		@include adaptive-calc(padding-bottom, 20, 57, 320, 1920);
+		@include adaptive-calc(padding-left, 8, 60, 320, 1920);
+	}
+
+	// .rs-banner__container
+	&__container {
+		max-width: 1920px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	// .rs-banner__body
+	&__body {
+		color: #fff;
+	}
+
+	// .rs-banner__bg
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 10px;
+		z-index: -1;
+		overflow: hidden;
+
+		img,
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+		}
+	}
+}
