@@ -1,7 +1,7 @@
 .rs-banner {
   padding: 20px;
   margin-bottom: -20px;
-  height: 100vh;
+  height: 100svh;
   margin-top: 0px;
 }
 @media (max-width: 1920px) {
@@ -79,6 +79,8 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
 }
 .rs-banner__bg::before {
   content: "";
